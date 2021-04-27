@@ -6,12 +6,12 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:14:38 by praclet           #+#    #+#             */
-/*   Updated: 2021/04/26 13:37:52 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/27 09:45:05 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "easyfind.hpp"
+#include "Span.hpp"
 
 int main(void)
 {
