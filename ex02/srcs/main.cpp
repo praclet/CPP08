@@ -6,16 +6,42 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:14:38 by praclet           #+#    #+#             */
-/*   Updated: 2021/04/26 13:37:52 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/28 18:13:48 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "easyfind.hpp"
+#include "MutantStack.hpp"
 
 int main(void)
 {
+	return (0);
+}
+
+int main()
+{
 	{
+		MutantStack<int> mstack;
+
+		mstack.push(5);
+		mstack.push(17);
+		std::cout << mstack.top() << std::endl;
+		mstack.pop();
+		std::cout << mstack.size() << std::endl;
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		mstack.push(0);
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+		++it;
+		--it;
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::stack<int> s(mstack);
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{

@@ -1,6 +1,7 @@
 NAME			:=	ex02
 
-SRCS			:=	main.cpp
+SRCS			:=	main.cpp	\
+					MutantStack.cpp
 
 SRCS_DIR		:=	./srcs/
 HEADERS_DIR		:=	./headers/
