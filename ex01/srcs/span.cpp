@@ -6,21 +6,21 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 09:32:29 by praclet           #+#    #+#             */
-/*   Updated: 2021/04/28 11:01:33 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/28 16:34:35 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span() : _nbElements(0), _tab()
+Span::Span() : _nbMaxElements(0), _tab()
 {
 }
 
-Span::Span(unsigned int n) : _nbElements(n), _tab(n, 0)
+Span::Span(unsigned int n) : _nbMaxElements(n), _tab()
 {
 }
 
-Span::Span(Span const & src) : _nbElements(src._nbElements), _tab(src._tab)
+Span::Span(Span const & src) : _nbMaxElements(src._nbMaxElements), _tab(src._tab)
 {
 }
 
@@ -32,7 +32,7 @@ Span & Span::operator=(Span const & src)
 {
 	if (this != &src)
 	{
-		_nbElements = src._nbElements;
+		_nbMaxElements = src._nbMaxElements;
 		_tab = src._tab;
 	}
 	return (*this);
@@ -40,19 +40,27 @@ Span & Span::operator=(Span const & src)
 
 void Span::addNumber(int n)
 {
-	if (_nbElements < _tab.size())
-	{
+	if (_tab.size() < _nbMaxElements )
 		_tab.push_back(n);
-		_nbElements++;
-	}
 	else
-		throw(new ContainerFullException());
+		throw(*new Span::ContainerFullException());
 }
 
-unsigned int Span::shortSpan(void) const
+void Span::addNumber(int begin, int end)
+{
+	if (begin > end)
+		return ;
+	if ((unsigned long)(end - begin + 1) > (_nbMaxElements - _tab.size()))
+		throw(*new Span::ContainerFullException());
+	for (int i = begin;i <= end;i++)
+		_tab.push_back(i);
+}
+
+unsigned int Span::shortestSpan(void) const
 {
 	if (_tab.size() <= 1)
-		throw(new NotEnoughDataException());
+		throw(*new Span::NotEnoughDataException());
+
 	std::vector<int> tmp = _tab;
 	unsigned int res = std::numeric_limits<unsigned int>::max();
 
@@ -66,9 +74,9 @@ unsigned int Span::shortSpan(void) const
 unsigned int Span::longestSpan(void) const
 {
 	if (_tab.size() <= 1)
-		throw(new NotEnoughDataException());
-	return (max_element(_tab.begin(), _tab.end()) -
-		min_element(_tab.begin(), _tab.end()));
+		throw(*new Span::NotEnoughDataException());
+	return (*max_element(_tab.begin(), _tab.end()) -
+		*min_element(_tab.begin(), _tab.end()));
 }
 
 Span::NotEnoughDataException::NotEnoughDataException()
@@ -88,4 +96,3 @@ const char* Span::ContainerFullException::what(void) const throw()
 {
 	return ("Object is full.");
 }
-

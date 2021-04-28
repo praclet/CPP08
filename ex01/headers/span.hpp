@@ -6,7 +6,7 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 09:32:37 by praclet           #+#    #+#             */
-/*   Updated: 2021/04/28 11:06:37 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/28 13:30:00 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Span
 {
 	private:
-		unsigned int _nbElements;
+		unsigned int _nbMaxElements;
 		std::vector<int> _tab;
 	public:
 		Span();
@@ -29,7 +29,7 @@ class Span
 		Span & operator=(Span const & src);
 		void addNumber(int n);
 		void addNumber(int begin, int end);
-		unsigned int shortSpan(void) const;
+		unsigned int shortestSpan(void) const;
 		unsigned int longestSpan(void) const;
 		class NotEnoughDataException : public std::exception
 		{
