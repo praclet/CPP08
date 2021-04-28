@@ -6,7 +6,7 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 09:32:29 by praclet           #+#    #+#             */
-/*   Updated: 2021/04/27 18:01:37 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/04/28 11:01:33 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Span::Span() : _nbElements(0), _tab()
 {
 }
 
-Span::Span(int n) : _nbElements(n), _tab(n, 0)
+Span::Span(unsigned int n) : _nbElements(n), _tab(n, 0)
 {
 }
 
@@ -49,12 +49,21 @@ void Span::addNumber(int n)
 		throw(new ContainerFullException());
 }
 
-int Span::shortSpan(void) const
+unsigned int Span::shortSpan(void) const
 {
-	;
+	if (_tab.size() <= 1)
+		throw(new NotEnoughDataException());
+	std::vector<int> tmp = _tab;
+	unsigned int res = std::numeric_limits<unsigned int>::max();
+
+	std::sort(tmp.begin(), tmp.end());
+	for (unsigned int i = 0;i < tmp.size() - 1;i++)
+		if ((unsigned int)(tmp[i + 1] - tmp[i]) < res)
+		   res = tmp[i + 1] - tmp[i];
+	return (res);
 }
 
-int Span::longestSpan(void) const
+unsigned int Span::longestSpan(void) const
 {
 	if (_tab.size() <= 1)
 		throw(new NotEnoughDataException());
