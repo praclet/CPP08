@@ -33,11 +33,12 @@ template <class T> class MutantStack : public std::stack<T>
 				this->c = src.c;
 			return (*this);
 		};
-		begin()
+		typedef std::stack<int>::container_type::iterator iterator;
+		iterator begin()
 		{
 			return (this->c.begin());
 		}
-		end()
+		iterator end()
 		{
 			return (this->c.end());
 		}

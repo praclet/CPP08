@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <limits>
 #include "Span.hpp"
 
 int main(void)

@@ -13,11 +13,12 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
+# include <algorithm>
 # include <iterator>
 
 template <class T> bool easyfind(T tab, int needle)
 {
-	typename T::iterator it = find(tab.first(), tab.end(), needle);
+	typename T::iterator it = find(tab.begin(), tab.end(), needle);
 
 	return (it != tab.end());
 };

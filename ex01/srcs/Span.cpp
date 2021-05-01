@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits>
+#include <algorithm>
 #include "Span.hpp"
 
 Span::Span() : _nbMaxElements(0), _tab()
