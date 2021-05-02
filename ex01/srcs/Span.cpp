@@ -6,7 +6,7 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 09:32:29 by praclet           #+#    #+#             */
-/*   Updated: 2021/04/28 16:34:35 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/02 17:28:28 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Span & Span::operator=(Span const & src)
 
 void Span::addNumber(int n)
 {
-	if (_tab.size() < _nbMaxElements )
+	if (_tab.size() < _nbMaxElements)
 		_tab.push_back(n);
 	else
 		throw(*new Span::ContainerFullException());

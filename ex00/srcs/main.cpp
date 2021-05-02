@@ -6,7 +6,7 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:14:38 by praclet           #+#    #+#             */
-/*   Updated: 2021/05/02 08:32:38 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/02 17:25:33 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,19 @@ void displayFoundOrNot(std::vector<int> const & vect, int needle)
 
 int main(void)
 {
-	{
-		std::vector<int> v(5);
+	std::vector<int> v(5);
 
-		v.push_back(56);
-		v.push_back(42);
-		displayFoundOrNot(v, -42);
-		displayFoundOrNot(v, 42);
-		v.push_back(-6);
-		v.push_back(-20000);
-		v.push_back(0);
-		displayFoundOrNot(v, 0);
-		displayFoundOrNot(v, 6);
-		displayFoundOrNot(v, -20000);
-		displayFoundOrNot(v, -6);
-	}
+	v.push_back(56);
+	v.push_back(42);
+	displayFoundOrNot(v, -42);
+	displayFoundOrNot(v, 42);
+	v.push_back(-6);
+	v.push_back(-20000);
+	v.push_back(0);
+	displayFoundOrNot(v, 0);
+	displayFoundOrNot(v, 6);
+	displayFoundOrNot(v, -20000);
+	displayFoundOrNot(v, -6);
+	std::cout << std::endl;
 	return (0);
 }

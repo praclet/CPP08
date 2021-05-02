@@ -6,7 +6,7 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:14:38 by praclet           #+#    #+#             */
-/*   Updated: 2021/05/02 08:36:06 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/02 17:40:21 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int main(void)
 		Span tmp(3);
 
 		tmp.addNumber(1,2);
-		tmp.addNumber(1);
+		tmp.addNumber(3);
 		try {
 			tmp.addNumber(4);
 		} catch (std::exception const & e) {
@@ -69,6 +69,7 @@ int main(void)
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
 		Span tmp1(5);
+
 		try {
 			tmp1.addNumber(1,6);
 		} catch (std::exception const & e) {
@@ -78,7 +79,7 @@ int main(void)
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
-		Span sp = Span(5);
+		Span sp(5);
 
 		sp.addNumber(1);
 		sp.addNumber(0);
@@ -114,7 +115,7 @@ int main(void)
 		try {
 			std::cout << sp.longestSpan() << std::endl;
 		} catch (std::exception const & e) {
-			std::cout << "Can't find longtest span: " << e.what() << std::endl;
+			std::cout << "Can't find longest span: " << e.what() << std::endl;
 		}
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
@@ -136,7 +137,7 @@ int main(void)
 		try {
 			std::cout << sp.longestSpan() << std::endl;
 		} catch (std::exception const & e) {
-			std::cout << "Can't find longtest span: " << e.what() << std::endl;
+			std::cout << "Can't find longest span: " << e.what() << std::endl;
 		}
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
