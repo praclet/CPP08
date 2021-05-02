@@ -6,7 +6,7 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:14:38 by praclet           #+#    #+#             */
-/*   Updated: 2021/04/28 16:49:11 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/02 08:36:06 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int main(void)
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
-		Span sp = Span(5);
+		Span sp(5);
 
 		try {
 			std::cout << sp.shortestSpan() << std::endl;
@@ -109,7 +109,7 @@ int main(void)
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
-		Span sp = Span(5);
+		Span sp(5);
 
 		try {
 			std::cout << sp.longestSpan() << std::endl;
@@ -119,7 +119,7 @@ int main(void)
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
-		Span sp = Span(5);
+		Span sp(5);
 	
 		sp.addNumber(9);
 		try {
@@ -130,7 +130,7 @@ int main(void)
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
-		Span sp = Span(5);
+		Span sp(5);
 
 		sp.addNumber(9);
 		try {
@@ -141,7 +141,7 @@ int main(void)
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
-		Span sp = Span(5);
+		Span sp(5);
 
 		sp.addNumber(std::numeric_limits<int>::max());
 		sp.addNumber(std::numeric_limits<int>::min());
@@ -150,7 +150,7 @@ int main(void)
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
-		Span sp = Span(15000);
+		Span sp(15000);
 
 		sp.addNumber(25,15000);
 		std::cout << sp.shortestSpan() << std::endl;
@@ -158,7 +158,7 @@ int main(void)
 	}
 	std::cout << "--------- " << __LINE__ << std::endl;
 	{
-		Span sp = Span(15001);
+		Span sp(15001);
 
 		for (int i = 0;i < 45000;i+=3)
 			sp.addNumber(i);

@@ -6,7 +6,7 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 17:02:12 by praclet           #+#    #+#             */
-/*   Updated: 2021/04/28 18:12:10 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/02 08:45:34 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ template <class T> class MutantStack : public std::stack<T>
 		MutantStack const operator=(MutantStack const & src)
 		{
 			if (&src != this)
-				this->c = src.c;
+				this->std::stack<T>::operator=(src);
 			return (*this);
 		};
 		typedef std::stack<int>::container_type::iterator iterator;
