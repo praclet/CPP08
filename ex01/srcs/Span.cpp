@@ -6,7 +6,7 @@
 /*   By: praclet <praclet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 09:32:29 by praclet           #+#    #+#             */
-/*   Updated: 2021/05/02 17:28:28 by praclet          ###   ########lyon.fr   */
+/*   Updated: 2021/05/03 11:08:54 by praclet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void Span::addNumber(int n)
 	if (_tab.size() < _nbMaxElements)
 		_tab.push_back(n);
 	else
-		throw(*new Span::ContainerFullException());
+		throw(Span::ContainerFullException());
 }
 
 void Span::addNumber(int begin, int end)
@@ -53,7 +53,7 @@ void Span::addNumber(int begin, int end)
 	if (begin > end)
 		return ;
 	if ((unsigned long)(end - begin + 1) > (_nbMaxElements - _tab.size()))
-		throw(*new Span::ContainerFullException());
+		throw(Span::ContainerFullException());
 	for (int i = begin;i <= end;i++)
 		_tab.push_back(i);
 }
@@ -61,7 +61,7 @@ void Span::addNumber(int begin, int end)
 unsigned int Span::shortestSpan(void) const
 {
 	if (_tab.size() <= 1)
-		throw(*new Span::NotEnoughDataException());
+		throw(Span::NotEnoughDataException());
 
 	std::vector<int> tmp = _tab;
 	unsigned int res = std::numeric_limits<unsigned int>::max();
@@ -76,7 +76,7 @@ unsigned int Span::shortestSpan(void) const
 unsigned int Span::longestSpan(void) const
 {
 	if (_tab.size() <= 1)
-		throw(*new Span::NotEnoughDataException());
+		throw(Span::NotEnoughDataException());
 	return (*max_element(_tab.begin(), _tab.end()) -
 		*min_element(_tab.begin(), _tab.end()));
 }
